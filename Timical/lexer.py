@@ -12,6 +12,10 @@ class Lexer ():
         # VARIABLE FILE
         self.lexer.add('VARIABLE_FILE', r'[w]\d+')
 
+        # VARIABLE VECTOR
+        # TODO: change v1 and f1 to varV1 and varF1
+        self.lexer.add('VARIABLE_VECTOR', r'[v]\d+')
+
         # TIME STAMP
         self.lexer.add('TIME_STAMP', r'timestamp')
 
@@ -30,6 +34,9 @@ class Lexer ():
         # Parenthesis
         self.lexer.add('OPEN_PAREN', r'\(')
         self.lexer.add('CLOSE_PAREN', r'\)')
+
+        self.lexer.add('OPEN_SQUARE_PAREN', r'\[')
+        self.lexer.add('CLOSE_SQUARE_PAREN', r'\]')
 
         # Equal
         self.lexer.add('EQUAL', r'\=')

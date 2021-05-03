@@ -13,6 +13,10 @@ class Parser():
                 'STRING', 
                 'NUMBER', 
                 'VARIABLE_FILE',
+                'VARIABLE_VECTOR',
+                'VECTOR',
+                'OPEN_SQUARE_PAREN',
+                'CLOSE_SQUARE_PAREN',
                 'FILE', 
                 'TIME_STAMP', 
                 'VECTOR', 
@@ -32,6 +36,10 @@ class Parser():
         @self.pg.production('program : VARIABLE_FILE EQUAL FILE OPEN_PAREN STRING CLOSE_PAREN SEMI_COLON')
         def program(p):
             return self.sp.File_Open(p[0], p[4])
+
+        @self.pg.production('program : VARIABLE_VECTOR EQUAL VECTOR OPEN_SQUARE_PAREN STRING CLOSE_SQUARE_PAREN SEMI_COLON')
+        def program(p):
+            return self.sp.Vector_Init(p[0], p[3])
 
         @self.pg.production('program : PRINT OPEN_PAREN expression CLOSE_PAREN SEMI_COLON')
         def program(p):
